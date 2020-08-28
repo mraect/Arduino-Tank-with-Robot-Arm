@@ -1,0 +1,13 @@
+Material: 	PLA or ABS (ABS recommended)
+Print Settings: 0.20 mm
+Infill: 	20%
+
+Support details;
+
+No Support		gear for metal servo.stl
+No Support		remote bottom.stl
+No Support		remote spacers.stl
+No Support		remote top.stl
+Support on Plate	robot arm to tank adapter.stl
+Support everywhere	tank new chassis.stl
+Support on Plate	tank platform.stl (print up side down)
