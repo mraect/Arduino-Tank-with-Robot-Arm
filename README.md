@@ -20,7 +20,6 @@
 | Imgs | Images from finished project. Wiring photos, finished photos etc. |
 | STL | 3D printer files which needed to make this project done |
 
-  
 # Needed Parts;
   - 2x Arduino Pro Mini
   - 4x DC geared Arduino motor
@@ -33,12 +32,13 @@
   - 2x Brushed ESC for tracks or one Brushed ESC which can control 2 motors separately.
   - 2S or 3S LiPo battery or 2 or 3 18650 LiIon battery
   - Jumper wires (female-female) to many of them :D
+  - If you have 90° servos you need 2.2k resistors 2 for each servos
 
 # Needed Tools;
   - Arduino IDE (v1.8.9 or higher) installed PC
   - 3D printer or slicing program fot STL files (Slic3r, Simple3D software etc.)
   - Screw driver
-  - If you use PDB, need soldering iron
+  - If you use PDB or you want to convert 90° servos to 180° servo, you need soldering iron
   - Hot glue gun for securing electronic parts
  
 License
