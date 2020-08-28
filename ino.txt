@@ -1,0 +1,120 @@
+
+#include <SPI.h>
+#include "RF24.h"
+#include <Servo.h>
+#include <SoftwareSerial.h>
+
+RF24 radio(10,9); //CE,CSN
+
+Servo motorServo1;
+Servo motorServo2;
+SoftwareSerial sfSerial(7,8); //RX,TX
+
+byte addresses[][6] = {"NRFTRX"};
+
+uint16_t received_data[12] ;
+uint8_t num_received_data = sizeof(received_data);
+
+
+uint16_t roboKolData[5];
+
+const int motorPin1 = 3;
+const int motorPin2 = 5;
+
+String inputString = "";
+boolean stringComplete = false;
+boolean rcDataFlag = false;
+boolean radioOnCacheFlag = false;
+boolean radioOnFlag = false;
+
+void setup() {
+  // initialize serial communications at 9600 bps:
+  
+  Serial.begin(115200);
+  sfSerial.begin(38400);
+
+  motorServo1.attach(motorPin1);
+  motorServo2.attach(motorPin2);
+  
+  radio.begin();
+  radio.setPALevel(RF24_PA_MAX);
+  
+  radio.openReadingPipe(1,addresses[0]);
+  radio.startListening();
+  radio.printDetails();
+}
+
+int syc = 0;
+void loop() {
+    while (Serial.available())
+    {
+      char inChar = (char)Serial.read();
+    
+      inputString += inChar;
+    
+      if (inChar == '\n') {
+        //stringComplete = true;
+        //stringComplete = false;
+        if (inputString.substring(0, (inputString.length() - 1)) == "RCDATA") 
+        {
+          rcDataFlag = !rcDataFlag;
+          Serial.println((rcDataFlag ? "RCDATA Aktif" : "RCDATA Pasif"));
+        }
+        inputString = "";
+      }
+    }
+    
+    delay(10);
+        
+    if (radio.available())
+    {
+      radioOnFlag = true;
+      
+      syc++;
+      radio.read( received_data, num_received_data);
+
+      motorServo1.write(map((1023 - received_data[0]), 0, 1023, 0, 180));
+      motorServo2.write(map(received_data[2], 0, 1023, 0, 180));
+
+      roboKolData[4] = map(received_data[5], 0, 1023, 0, 180);
+      roboKolData[3] = map((1023 - received_data[4]), 0, 1023, 0, 180);
+      roboKolData[2] = map(received_data[6], 0, 1023, 0, 180);
+      roboKolData[1] = map((1023 - received_data[7]), 0, 1023, 0, 180);
+      roboKolData[0] = map(received_data[8], 1, 0, 30, 135);
+      
+      //Serial.println((1023 - received_data[0]), DEC);
+
+      String data = "";
+      
+      for(int syc = 0; syc < 12 ; syc++)
+        data += String(received_data[syc]) + ",";
+        
+      String data2 = "";
+      //for(int syc = 4; syc >= 0 ; syc--)
+      for(int syc = 0; syc < 5 ; syc++)
+        data2 += String(roboKolData[syc]) + ",";
+        
+      if(data2 != "")
+        data2 = data2.substring(0,data2.length() - 1);
+
+      if(syc % 14 == 0)
+      {
+        syc = 0;
+        sfSerial.println(data2);
+      }
+      
+      if(rcDataFlag && radioOnFlag == radioOnCacheFlag)
+        Serial.println(data);
+    }
+    else
+      radioOnFlag = false;
+    
+    if(radioOnFlag ^ radioOnCacheFlag)
+    {
+      String msj = "Kumanda";
+      Serial.println(String(msj + (radioOnFlag ? "ya Baglanildi" : " Baglantisi Koptu")));
+      radioOnCacheFlag = radioOnFlag;
+    }
+    
+  delay(30);
+}
