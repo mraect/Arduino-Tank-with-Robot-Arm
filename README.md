@@ -1,6 +1,6 @@
 # Arduino Tank with Robot Arm 
 
-![ArduTankRobotArm](https://github.com/mraect/[reponame]/blob/[branch]/image.jpg?raw=true)
+![ArduTankRobotArm](https://github.com/mraect/Arduino-Tank-with-Robot-Arm/blob/master/Imgs/20200828_175926.jpg?raw=true)
 
 > For finished product photos, look "Imgs" folder.
 
