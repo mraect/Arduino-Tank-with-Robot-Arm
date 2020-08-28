@@ -1,6 +1,6 @@
 # Arduino Tank with Robot Arm 
 
-[![ArduTankRobotArm](https://raw.githubusercontent.com/mraect/Arduino-Tank-with-Robot-Arm/master/Imgs/20200828_175926.jpg?token=AB7F62KGNHIYDQAJTIO2FR27JFEKC)]
+[![ArduTankRobotArm](https://github.com/mraect/Arduino-Tank-with-Robot-Arm/blob/master/Imgs/20200828_175926.jpg)]
 
 Needed Files;
   - For Robot Arm 3D files grab it from Thingiverse [![RobotArm3D](https://www.thingiverse.com/thing:2954381)]
