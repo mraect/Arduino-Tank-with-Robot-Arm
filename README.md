@@ -3,8 +3,8 @@
 [![ArduTankRobotArm](https://github.com/mraect/Arduino-Tank-with-Robot-Arm/blob/master/Imgs/20200828_175926.jpg)]
 
 Needed Files;
-  - For Robot Arm 3D files grab it from Thingiverse [![RobotArm3D](https://www.thingiverse.com/thing:2954381)]
-  - For Tank 3D files grab it from Thingiverse [![Tank3D](https://www.thingiverse.com/thing:2954381)]
+  - For Robot Arm 3D files grab it from [Thingiverse - RobotArm3D][https://www.thingiverse.com/thing:2954381]
+  - For Tank 3D files grab it from [Thingiverse - Tank3D][https://www.thingiverse.com/thing:2954381]
   - For adaptors and new chassis look STL folder
   
 # New Features!
