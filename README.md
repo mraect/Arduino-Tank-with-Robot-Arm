@@ -12,13 +12,13 @@
   - Need some sort of remote controller or raw Arduino attached nRF24L01 and some pots
   
   ### Folder Structure
-
-	| Folder | Description |
-	| ------ | ------ |
-	| Codes | Has 2 ino folder. One is for Main Arduino (KumandaAliciBasit) and other is for Robot Arm (RobotKolTekData)|
-	| Docs | PDF file which contains wiring diagram and explains data connection |
-	| Imgs | Images from finished project. Wiring photos, finished photos etc. |
-	| STL | 3D printer files which needed to make this project done |
+  
+| Folder | Description |
+| ------ | ------ |
+| Codes | Has 2 ino folder. One is for Main Arduino (KumandaAliciBasit) and other is for Robot Arm (RobotKolTekData)|
+| Docs | PDF file which contains wiring diagram and explains data connection |
+| Imgs | Images from finished project. Wiring photos, finished photos etc. |
+| STL | 3D printer files which needed to make this project done |
 
   
 # Needed Parts;
